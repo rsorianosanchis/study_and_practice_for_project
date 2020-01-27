@@ -1,4 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+
 
 const Date = ({ date, allDates, updateAllDates }) => {
   const { husdjur, ägare, datum, klok, klinic, id } = date;
@@ -21,5 +23,11 @@ const Date = ({ date, allDates, updateAllDates }) => {
     </div>
   )
 };
+
+Date.propTypes = {
+  date: PropTypes.object.isRequired,
+  allDates: PropTypes.array.isRequired,
+  updateAllDates: PropTypes.func.isRequired
+}
 
 export default Date;

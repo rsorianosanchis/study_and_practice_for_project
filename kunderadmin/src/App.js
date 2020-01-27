@@ -19,6 +19,7 @@ function App() {
   const [allDates, updateAllDates] = useState(initialDates);
   // use effect när state changes
   useEffect(() => {
+    let initialDates = JSON.parse(localStorage.getItem('dates'));
     console.log('doumento montado');
     if (initialDates) {
       localStorage.setItem('dates', JSON.stringify(allDates))
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <Fragment>
-      <h1>Admin av kunderna</h1>
+      <h1>Veterinärpatient</h1>
       <div className='container'>
         <div className="one-half column">
           <Formul
