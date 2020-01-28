@@ -24,7 +24,7 @@ const Formul = ({ setBudget, setAvailable }) => {
     localStorage.setItem('initial_Amount', JSON.stringify(amount));
     setBudget(amount)
     setAvailable(amount)
-    setAmount(0)
+    //setAmount(0)
   };
 
   // useEffect(() => {
@@ -44,7 +44,7 @@ const Formul = ({ setBudget, setAvailable }) => {
           className="form-control"
           id="amount"
           placeholder="Skriv ditt vecko budget"
-          value={amount}
+          //value={amount}
           onChange={handleInput}
         />
         <button

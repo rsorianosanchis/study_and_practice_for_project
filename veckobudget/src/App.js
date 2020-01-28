@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Formul from './components/Formul';
+import NyKostnadFormul from './components/NyKostnadFormul';
 
 
 function App() {
@@ -12,17 +13,23 @@ function App() {
           <p className="h3">Veckobudget</p>
         </div>
       </header>
-      <header className="row bg-info">
-        <div className="col-6 text-center mt-2">
-          <p className="h3">Settings</p>
-          <Formul
-            setBudget={setBudget}
-            setAvailable={setAvailable}
-
-          />
+      <main className='row'>
+        <div className="col-6 bg-info d-flex flex-column " >
+          <div className="text-center">
+            <p className="h3">Settings</p>
+            <Formul
+              setBudget={setBudget}
+              setAvailable={setAvailable}
+            />
+          </div>
+          <div className="text-center" style={{ height: '980px' }}>
+            {available > 0 ? <NyKostnadFormul /> : null}
+          </div>
         </div>
-      </header>
-    </div>
+      </main >
+
+
+    </div >
 
   );
 }
