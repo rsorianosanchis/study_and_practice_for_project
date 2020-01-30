@@ -34,7 +34,7 @@ const Formul = ({ setBudget, setAvailable }) => {
   // }, [amount])
 
 
-  return (<Fragment>
+  return (
     <form>
       {error === true ? <Alert msg={`amount ${amount} is not valid `} /> : null}
       <label className=" d-flex text-black-100">Vecko Budget</label>
@@ -53,7 +53,6 @@ const Formul = ({ setBudget, setAvailable }) => {
         >Add</button>
       </div>
     </form>
-  </Fragment>
   )
 }
 

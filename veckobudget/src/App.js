@@ -4,8 +4,9 @@ import NyKostnadFormul from './components/NyKostnadFormul';
 
 
 function App() {
-  const [budget, setBudget] = useState();
-  const [available, setAvailable] = useState();
+  const [budget, setBudget] = useState(0);
+  const [available, setAvailable] = useState(0);
+  const [kostnader, setKostnader] = useState([]);
   return (
     <div className="container-fluid">
       <header className="row bg-info">
@@ -14,16 +15,26 @@ function App() {
         </div>
       </header>
       <main className='row'>
-        <div className="col-6 bg-info d-flex flex-column " >
-          <div className="text-center">
-            <p className="h3">Settings</p>
-            <Formul
-              setBudget={setBudget}
-              setAvailable={setAvailable}
-            />
+        <div className="col-6 p-0 d-flex flex-column" style={{ minHeight: '95vh' }}>
+          <div className='px-3 pb-2 bg-info flex-fill'>
+            {budget === 0 && available === 0
+              ?
+              <Formul
+                setBudget={setBudget}
+                setAvailable={setAvailable}
+              />
+              : <NyKostnadFormul kostnader={kostnader} setKostnader={setKostnader} />}
           </div>
-          <div className="text-center" style={{ height: '980px' }}>
-            {available > 0 ? <NyKostnadFormul /> : null}
+        </div>
+        <div className="col-6 p-0 d-flex flex-column" style={{ minHeight: '95vh' }}>
+          <div className='px-3 pb-2 bg-info flex-fill'>
+            {/* {budget === 0 && available === 0
+              ?
+              <Formul
+                setBudget={setBudget}
+                setAvailable={setAvailable}
+              />
+              : <NyKostnadFormul kostnader={kostnader} setKostnader={setKostnader} />} */}
           </div>
         </div>
       </main >
