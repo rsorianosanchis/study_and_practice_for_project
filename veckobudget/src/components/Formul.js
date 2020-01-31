@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Alert from './Alert';
+import PropTypes from 'prop-types';
 
 const Formul = ({ setBudget, setAvailable }) => {
 
@@ -56,4 +57,8 @@ const Formul = ({ setBudget, setAvailable }) => {
   )
 }
 
+Formul.propTypes = {
+  setBudget: PropTypes.func.isRequired,
+  setAvailable: PropTypes.func.isRequired
+}
 export default Formul;
