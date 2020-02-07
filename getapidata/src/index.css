@@ -1,0 +1,25 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+* {
+  margin:0 ;
+}
+html {
+  height: 100%;
+}
+body {
+  background-image: url(logo.svg), -webkit-linear-gradient(top left, #dbe7e3 0%, #919995 40%, #5f6464 100%);
+  min-height: 100%;
+  background-position: center 80px, center center; 
+  background-repeat:no-repeat;
+  background-size: 300px, 100% 100%;
+  display: flex;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+}

@@ -29,3 +29,10 @@ export const prisPlan = (plan) => {
 
 }
 
+export const firstUppercase = (string) => {
+  string.trim();
+  const upper = string.charAt(0).toUpperCase() + string.substring(1);
+  console.log(upper);
+  return upper;
+}
+

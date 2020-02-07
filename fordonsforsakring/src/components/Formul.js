@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { bilAlder, prisTillverkare, prisPlan } from '../helper';
+import '../index.css';
+import PropTypes from 'prop-types';
 
 //styles
 const ItemFormul = styled.div`
@@ -51,7 +53,7 @@ const Error = styled.div`
 
 
 
-const Formul = () => {
+const Formul = ({ setResult, setLoading }) => {
 
   const [data, setData] = useState({
     tillverkare: '',
@@ -75,6 +77,7 @@ const Formul = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     if (tillverkare.trim() === '' || year.trim() === '' || plan.trim() === '') {
       setError(true);
       return;
@@ -85,19 +88,23 @@ const Formul = () => {
     //varibales del bussness
     //-> obtenemos antigueedad del vehiculo
     const gammal = bilAlder(year);
-    console.log(gammal, typeof (gammal));
     // minus 3% per vrje gammal år
-
     basePris = basePris - (basePris * (3 * gammal) / 100);
-    console.log(basePris);
-
     //increment enligt tillverkare
-
     basePris = basePris * prisTillverkare(tillverkare);
-    console.log(basePris);
 
     basePris = parseFloat(basePris * prisPlan(plan)).toFixed(2);
-    console.log(basePris);
+    ;
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false)
+      setResult({ pris: Number(basePris), data })
+
+    }, 3000)
+
+
+
+
 
   }
 
@@ -144,5 +151,8 @@ const Formul = () => {
     </form>
   )
 }
-
+Formul.propTypes = {
+  setResult: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired
+}
 export default Formul;
