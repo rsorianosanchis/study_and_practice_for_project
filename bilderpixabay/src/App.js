@@ -17,19 +17,24 @@ function App() {
     }
     setPageActual(newActual);
     console.log(pageActual);
+    const jumbotron = document.querySelector('.jumbotron');
+    jumbotron.scrollIntoView({ behavior: 'smooth' });
   };
 
   const nextPage = e => {
     e.preventDefault();
     console.log('next');
-    const newActua = pageActual + 1;
-    if (newActua > totalPages) {
+    const newActual = pageActual + 1;
+    if (newActual > totalPages) {
       //setPageActual(totalPages);
       console.log(pageActual);
       return;
     }
-    setPageActual(newActua);
-    console.log(newActua);
+    setPageActual(newActual);
+    console.log(newActual);
+    //
+    const jumbotron = document.querySelector('.jumbotron');
+    jumbotron.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -44,6 +49,7 @@ function App() {
         <hr className='my-4' />
       </div>
       <div className='row justify-content-center'>
+        <ListaImg bilder={bilder} />
         {pageActual === 1 ? null : (
           <button className='btn btn-info mt-2 mr-4' onClick={previousPage}>
             &laquo; Previous{' '}
@@ -54,7 +60,6 @@ function App() {
             Next &raquo;
           </button>
         )}
-        <ListaImg bilder={bilder} />
       </div>
     </div>
   );

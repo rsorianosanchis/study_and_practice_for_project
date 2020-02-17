@@ -1,2 +1,2 @@
 -- implentation bootstrap +sass+react
--- pagination
+-- pagination i api, previous-next buttons
